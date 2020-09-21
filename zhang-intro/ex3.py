@@ -70,6 +70,7 @@ def two_f():
 
 def centerString( s, border, lineLength ):
     '''
+    A function used in three()
     '''
     if (len( s ) % 2) == 0:    #name is even
 
@@ -97,14 +98,32 @@ def three():
     fullLine = border * lineLength + '\n'
     emptyLine = border + ' ' * ( lineLength - 2 ) + border + '\n'
 
-    nameLine = centerString( 'Hello '+name, border, lineLength)
+    nameLine = centerString( 'Hello '+ name, border, lineLength)
 
     if len( message ) < ( lineLength - 2 ):
         messageLine = centerString( message, border, lineLength )
     else:
         messageLine = "TBD"
-
     print( fullLine + emptyLine + nameLine + emptyLine + messageLine + emptyLine + fullLine)
 
 if __name__ == '__main__':
-    three()
+    message = "this is a message definitely under 50 characters"
+    lineLength = 40
+
+    messageSplit = message.split(' ')
+
+    messageL1 = ''
+    messageL2 = ''
+    trimmedArray = []
+    i = 0
+    while len(messageL1) < lineLength:
+        trimmedArray.append( messageSplit[i] )
+        print(trimmedArray)
+        messageL1 = ' '.join(trimmedArray)
+        i += 1
+
+    print(messageL1)
+    txt = 'hello how are you'
+    new = txt.split(' ')
+    new2 = ' '.join(new)
+    print(len(['a','b','c']))
