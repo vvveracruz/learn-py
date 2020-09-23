@@ -132,5 +132,20 @@ def getFormattedMessage( rawMessage, lineLength, border ):
 
     return formattedMessage
 
+def four():
+    '''
+    A program that asks for user input and performs conversions.
+    '''
+    choice = None
+    choiceMessage = "What conversion do you need help with?\n\n1 - Celsius to Fahrenheit,\n2 - Fahrenheit to Celsius,\n3 - Meter to foot,\n4 - Foot to meter,\n5 - Acre to square meter,\n6 -  Square meter to acre,\n7 - Pound to kilogram,\n8 - Kilogram to pound conversion.\n\nEnter a digit from 1 to 8 here: "
+    choiceError = "\nThat's not an option. Please enter a digit from 1 to 8 here: "
+
+    choice = int( raw_input( choiceMessage ) )
+    while True:
+        if choice in range(8):
+            break
+        else:
+            choice = int( raw_input( choiceError ) )
+
 if __name__ == '__main__':
-    three()
+    four()
