@@ -89,8 +89,8 @@ def three():
     '''
     A function that asks the user for their name, and a short message under 50 characters, and displays it.
     '''
-    name = "myName3"
-    message = "this is a message definitely under 50 characters"
+    name = str ( raw_input( "What is your name? " ) )
+    message = str ( raw_input( "What is your message? " ) )
 
     lineLength = 40
     border = '*'
@@ -103,27 +103,34 @@ def three():
     if len( message ) < ( lineLength - 2 ):
         messageLine = centerString( message, border, lineLength )
     else:
-        messageLine = "TBD"
+        messageLine = getFormattedMessage( message, lineLength, border)
     print( fullLine + emptyLine + nameLine + emptyLine + messageLine + emptyLine + fullLine)
 
+def getFormattedMessage( rawMessage, lineLength, border ):
+    '''
+    '''
+    # INIT
+    messageLength = lineLength - 2*len(border) - 2
+    wordList = rawMessage.split(' ')
+    formattedLine = ''
+    formattedMessage = ''
+
+    for word in wordList:
+        if len(word) + len(formattedLine) + 1 >= messageLength:
+
+            formattedLine = centerString( formattedLine, border, lineLength )
+            formattedMessage = formattedMessage + formattedLine
+
+            formattedLine = word
+
+        else:
+
+            formattedLine = formattedLine + ' ' + word
+
+    formattedLine = centerString( formattedLine, border, lineLength )
+    formattedMessage = formattedMessage + formattedLine
+
+    return formattedMessage
+
 if __name__ == '__main__':
-    message = "this is a message definitely under 50 characters"
-    lineLength = 40
-
-    messageSplit = message.split(' ')
-
-    messageL1 = ''
-    messageL2 = ''
-    trimmedArray = []
-    i = 0
-    while len(messageL1) < lineLength:
-        trimmedArray.append( messageSplit[i] )
-        print(trimmedArray)
-        messageL1 = ' '.join(trimmedArray)
-        i += 1
-
-    print(messageL1)
-    txt = 'hello how are you'
-    new = txt.split(' ')
-    new2 = ' '.join(new)
-    print(len(['a','b','c']))
+    three()
