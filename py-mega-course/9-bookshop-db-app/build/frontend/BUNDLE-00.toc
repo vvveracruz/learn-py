@@ -1,0 +1,3 @@
+([('frontend',
+   '/Users/veracruz/Documents/learn-py/py-mega-course/9-bookshop-db-app/dist/frontend',
+   'EXECUTABLE')],)
